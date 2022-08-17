@@ -1,0 +1,24 @@
+class Graph:
+    def __init__(self, vertex):
+        self.vertex = vertex
+        self.graph = [[]for i in range(self.vertex)]
+
+    def addEdge(self, u, v, weight):
+        self.graph[u-1].append([v-1, weight])
+
+    def showListGraph(self):
+        print('Lista de adjacência ( pesos ): ')
+        for i in range(self.vertex):
+            print(f'{i+1}:', end='  ')
+            for j in self.graph[i]:
+                print(f'{j[0]+1, j[1]}  ->', end='  ')
+            print('')
+
+
+gp = Graph(5)
+gp.addEdge(1, 5, 4)
+gp.addEdge(1, 2, 2)
+gp.addEdge(2, 4, 7)
+gp.addEdge(3, 2, 8)
+gp.addEdge(4, 1, 3)
+gp.showListGraph()
